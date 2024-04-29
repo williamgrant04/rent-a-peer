@@ -1,10 +1,37 @@
-<div class="banner">
-  <h1>Rent a Peer</h1>
-  <h3>Catchy tagline</h3>
+<div class="navbar justify-content-center"><h1>THIS IS A NAVBAR</h1></div>
+<%# ABOVE NAVBAR SHOULD BE REPLACED BY RUCHA'S WORK %>
+<div class="banner mx-2" style="linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+  <div class="banner-text">
+    <h1 class=>Rent-a-Peer</h1>
+    <p>Catchy tagline</p>
+  </div>
 </div>
 <div class="container">
-  <div class="trending"></div>
-  <%# simple_form_for %>
-  <div class="services"></div>
-  <div class="footer"></div>
+<%# HERE IS THE CODE FOR THE SEARCH BAR ⬇️ %>
+  <div class="out-search">
+    <div class="search">
+      <form onsubmit="event.preventDefault();" role="search">
+      <label for="search">Search for stuff</label>
+      <input id="search" type="search" placeholder="How can we help you?" autofocus required />
+      <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <%# END OF CODE FOR THE SEARCH BAR %>
+  <%# HERE IS THE CODE FOR THE SERVICES GRID ⬇️ %>
+  <%# <% for each services do |service| %>
+  <div class="services">
+    <div class="grid">
+      <div class="card--services service">
+        <div class="bg--illustration">
+        </div>
+          <div class="display--indicator service-indicator"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <%# WE SHOULD DEFINE ONE ICON PER DEFINED SERVICE %>
+      </div>
+      <p>Mechanic</p>
+      </div>
+  </div>
+  <%# <% end %>
+  <%# END OF CODE FOR THE SERVICES GRID %>
 </div>
+<div class="justify-content-center"><h1>THIS IS A FOOTER</h1></div>

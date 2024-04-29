@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700');
+
+.grid {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.card--services {
+	margin: 1rem 2rem;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 0.5rem;
+	position: relative;
+	overflow: hidden;
+}
+.display--indicator {
+	position: absolute;
+	font-size: 2.5rem;
+	color: white;
+	z-index: 2;
+	font-family: 'Montserrat Alternates', sans-serif;
+	.fa-solid {
+    justify-items: center;
+  }
+}
+
+.service-indicator {
+	text-shadow: 1px 3px #311f08;
+}
+.service {
+	background-color: blue;
+	box-shadow: 0 5px 10px var(--card-sunny);
+	animation: .3s ease-in-out sunny-hover--back both;
+}
+.card--services.service:hover {
+	animation: .3s ease-in-out 0s sunny-hover both;
+}
+
+.service .z {
+	width: 7rem;
+	height: 7rem;
+	border-radius: 100%;
+	position: absolute;
+	top: -4rem;
+	right: -2.8rem;
+	background-color: blue;
+}
