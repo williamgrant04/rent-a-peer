@@ -50,6 +50,8 @@ gem "devise"
 
 gem "cloudinary"
 gem "dotenv-rails"
+gem "font-awesome-sass", "~> 6.1"
+gem "sassc-rails"
 
 
 group :development, :test do
