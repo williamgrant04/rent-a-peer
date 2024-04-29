@@ -6,6 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :age, numericality: { only_integer: true, greater_than: 17, message: 'You must be older than 18' }
+  validates :age, numericality: { only_integer: true, greater_than: 17, message: 'You must be 18 or older' }
   validates :location, presence: true
 end
