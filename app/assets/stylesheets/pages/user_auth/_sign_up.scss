@@ -1,0 +1,52 @@
+// Nesting everything so any styles in this file will only apply to the sign-up page
+.sign-up-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 20px 50px;
+    border-radius: 12px;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .names {
+    display: flex;
+
+    .user_first_name {
+      margin-right: 10px;
+    }
+  }
+
+  .form-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .btn, a {
+      background-color: rgb(182, 182, 182);
+      border-radius: 16px;
+      padding: 0.375rem 0.75rem;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: black;
+        color: rgb(182, 182, 182);
+        border-radius: 12px;
+      }
+    }
+  }
+}
