@@ -6,51 +6,67 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    placeholder: "Email",
-                    label: false,
-                    input_html: { autocomplete: "email" } %>
+        <%=
+          f.input :email,
+          required: true,
+          autofocus: true,
+          placeholder: "Email",
+          label: false,
+          input_html: { autocomplete: "email" }
+        %>
 
         <div class="names">
-          <%= f.input :first_name,
-                      required: true,
-                      placeholder: "First name",
-                      label: false,
-                      input_html: { autocomplete: "first_name" }%>
+          <%=
+            f.input :first_name,
+            required: true,
+            placeholder: "First name",
+            label: false,
+            input_html: { autocomplete: "first_name" }
+          %>
 
-          <%= f.input :last_name,
-                      required: true,
-                      placeholder: "Last name",
-                      label: false,
-                      input_html: { autocomplete: "last_name" }%>
+          <%=
+            f.input :last_name,
+            required: true,
+            placeholder: "Last name",
+            label: false,
+            input_html: { autocomplete: "last_name" }
+          %>
+
         </div>
-        <%= f.input :age,
-                    required: true,
-                    as: :numeric,
-                    placeholder: "Age",
-                    label: false,
-                    input_html: { autocomplete: "age" }%>
 
-        <%= f.input :location,
-                    required: true,
-                    placeholder: "Location",
-                    label: false,
-                    input_html: { autocomplete: "location" }%>
+        <%=
+          f.input :age,
+          required: true,
+          as: :numeric,
+          placeholder: "Age",
+          label: false,
+          input_html: { autocomplete: "age" }
+        %>
 
-        <%= f.input :password,
-                    required: true,
-                    placeholder: "Password",
-                    label: false,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+        <%=
+          f.input :location,
+          required: true,
+          placeholder: "Location",
+          label: false,
+          input_html: { autocomplete: "location" }
+        %>
 
-        <%= f.input :password_confirmation,
-                    required: true,
-                    placeholder: "Confirm password",
-                    label: false,
-                    input_html: { autocomplete: "new-password" } %>
+        <%=
+          f.input :password,
+          required: true,
+          placeholder: "Password",
+          label: false,
+          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+          input_html: { autocomplete: "new-password" }
+        %>
+
+        <%=
+          f.input :password_confirmation,
+          required: true,
+          placeholder: "Confirm password",
+          label: false,
+          input_html: { autocomplete: "new-password" }
+        %>
       </div>
 
       <div class="form-actions">
