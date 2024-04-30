@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'services/index'
   get 'services/show'
   devise_for :users
+  root to: 'homepage#index'
   resources :user_services, only: %i[new create destroy]
   resources :services, only: %i[index show]
 end

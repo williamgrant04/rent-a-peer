@@ -6,7 +6,6 @@
 }
 
 .service-card {
-  border: 2px solid transparent;
   .service-content {
     margin: auto;
     display: flex;
@@ -25,9 +24,12 @@
   i {
     margin: auto;
   }
+  &:hover {
+    border: 2px solid yellowgreen;
+    box-shadow: 2px 2px 2px yellowgreen;
+    color: yellowgreen;
+  }
   }
   &:hover {
-    transform: scale(1.02);
-    border: 2px solid blue;
   }
 }
