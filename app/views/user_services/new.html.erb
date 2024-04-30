@@ -1,2 +1,4 @@
-<h1>UserServices#new</h1>
-<p>Find me in app/views/user_services/new.html.erb</p>
+<%= simple_form_for(@user_service) do |f| %>
+  <%= f.input :service, :collection => @service_names %>
+  <%= f.submit "Add service" %>
+  <% end %>
