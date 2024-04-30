@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'services/index'
+  get 'services/show'
   devise_for :users
-  get "/profile", to: "users#show"
+  resources :user_services, only: %i[new create destroy]
+  resources :services, only: %i[index show]
 end
