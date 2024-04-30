@@ -1,1 +1,25 @@
-<%= @user.email %>
+<div class="page">
+  <div class="banner-image" data-controller="banner-select" data-action="click->banner-select#showEditModal" data-modal-active="false">
+    <% if @user.banner_image.key %>
+      <%= cl_image_tag(@user.banner_image.key) %>
+    <% else %>
+      <div class="no-image"></div>
+    <% end %>
+  </div>
+
+  <div class="profile-image">
+    <%= cl_image_tag(@user.profile_image.key) %>
+  </div>
+
+  <div class="user-details">
+    <h3><%= @user.location.capitalize %></h3>
+    <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+    <div class="service-chips">
+      <% @services.each do |service| %>
+        <p class="chip"><%= service.name.capitalize %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div id="editBannerModalRoot"></div>
