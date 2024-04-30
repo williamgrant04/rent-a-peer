@@ -6,6 +6,7 @@
   align-items: center;
 
   .sign-in {
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,38 +27,13 @@
       margin-right: 10px;
     }
   }
-
-  .input {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    input {
-      margin-bottom: 10px;
-      border-radius: 12px;
-      padding: 5px 10px;
-      border: 1px solid transparent;
-      transition: 0.3s;
-
-      &:focus-visible {
-        outline: none;
-        border: 1px solid grey;
-      }
-    }
-
-    input[name="user[password]"] {
-      margin: 0;
-    }
-
-    input + .hint {
-      margin-bottom: 10px;
-      font-style: italic;
-      font-size: 0.9rem;
-    }
+  .new_user {
+    width: 100%;
   }
 
   .form-actions {
     margin-top: 15px;
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
