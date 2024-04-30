@@ -1,0 +1,20 @@
+#editBannerModalRoot {
+  position: absolute;
+  top: 0;
+
+  .modal-wrapper {
+    background-color: rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .modal-content {
+      background-color: orange;
+      width: 30%;
+      padding: 10px 30px;
+    }
+  }
+}

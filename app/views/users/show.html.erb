@@ -1,5 +1,5 @@
 <div class="page">
-  <div class="banner-image">
+  <div class="banner-image" data-controller="banner-select" data-action="click->banner-select#showEditModal" data-modal-active="false">
     <% if @user.banner_image.key %>
       <%= cl_image_tag(@user.banner_image.key) %>
     <% else %>
@@ -11,11 +11,15 @@
     <%= cl_image_tag(@user.profile_image.key) %>
   </div>
 
-  <h3><%= @user.location %></h3>
-  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-  <div>
-    <%= @services.each do |service| %>
-      <p>service</p>
-    <% end %>
+  <div class="user-details">
+    <h3><%= @user.location.capitalize %></h3>
+    <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+    <div class="service-chips">
+      <% @services.each do |service| %>
+        <p class="chip"><%= service.name.capitalize %></p>
+      <% end %>
+    </div>
   </div>
 </div>
+
+<div id="editBannerModalRoot"></div>

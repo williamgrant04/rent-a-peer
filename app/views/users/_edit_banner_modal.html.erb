@@ -1,0 +1,25 @@
+<div class="modal-wrapper">
+  <div class="modal-content" data-controller="banner-select">
+    <%= simple_form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :banner_image, as: :file, required: true, label: false %>
+
+        <%= f.input :email, as: :hidden %>
+
+        <%= f.input :current_password,
+                    hint: "We need your current password to confirm your changes",
+                    required: true,
+                    label: false,
+                    placeholder: "Current Password",
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update profile banner" %>
+        <button data-action="click->banner-select#closeEditModal">Cancel</button>
+      </div>
+    <% end %>
+  </div>
+</div>
