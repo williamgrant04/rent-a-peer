@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
-  validates :rating, numercality: { only_integer: true, in: (0..5) }
+  validates :rating, numericality: { only_integer: true, in: (0..5) }
 end
