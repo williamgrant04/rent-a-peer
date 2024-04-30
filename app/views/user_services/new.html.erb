@@ -1,0 +1,4 @@
+<%= simple_form_for(@user_service) do |f| %>
+  <%= f.input :service, :collection => @service_names %>
+  <%= f.submit "Add service" %>
+  <% end %>
