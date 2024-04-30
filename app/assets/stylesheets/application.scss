@@ -7,26 +7,3 @@
 // SCSS partials
 @import "components/index";
 @import "pages/index";
-
-.navbar-logo {
-  width: 50px;
-  height: auto;
-}
-.navbar-lewagon {
-  display: flex;
-  justify-content: space-between;
-  background: white;
-  align-items: center;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-.navbar-lewagon .nav-item img {
-  width: 40px; /* Adjust the width of the other image */
-  height: auto; /* Maintain aspect ratio */
-}
