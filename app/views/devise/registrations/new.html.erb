@@ -52,6 +52,14 @@
         %>
 
         <%=
+          f.input :profile_image,
+          required: true,
+          as: :file,
+          label: false,
+          placeholder: "Profile image"
+        %>
+
+        <%=
           f.input :password,
           required: true,
           placeholder: "Password",
