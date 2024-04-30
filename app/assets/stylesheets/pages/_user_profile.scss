@@ -1,0 +1,36 @@
+.page {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-image {
+  .no-image {
+    background-color: rgb(180, 180, 180);
+    height: 350px;
+    width: 100vw;
+    transition: 0.2s;
+
+    &:hover {
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    &:active {
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+  }
+}
+
+.profile-image {
+  position: relative;
+  top: -125px;
+  transition: 0.2s;
+  border-radius: 50%;
+
+  img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+  }
+}
