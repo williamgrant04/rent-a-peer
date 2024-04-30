@@ -21,47 +21,111 @@
   <div class="bottom-container d-flex">
   <%# HERE IS THE CODE FOR THE TRENDINGS ⬇️ %>
     <div class="trendings w-25">
-    <%# trending 1 %>
-      <div class="flex flex-wrap m-3">
-        <div class="flex flex-col p-3">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
-            <img src="app/assets/images/persona.png" alt="profile-pic">
-            <div class="p-4 flex-1 flex flex-col">
-              <h3 class="mb-4 text-2xl">Name</h3>
-                <div class="mb-4 text-grey-darker text-sm flex-1">
-                  <p>Nice review </p>
+      <div class="trending-card">
+        <p class="fs-4">Top rated Peers</p>
+      <%# trending 1 %>
+      <div class="flex flex-wrap">
+        <div class="card position-relative">
+          <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+            <div class="bio d-flex">
+              <%= image_tag(('persona.png'), :class => "profile-picture") %>
+              <div class="name-and-profile">
+                <h3 class="ms-1 mb-2 text-2xl">Name</h3>
+                <div class="ms-1 rating d-flex">
+                  <p> 4,5</p>
+                  <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                  </div>
                 </div>
-              <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide">See profile</a>
+              </div>
             </div>
-          </div>
+        </div>
+        <div class="card position-relative">
+          <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+            <div class="bio d-flex">
+              <%= image_tag(('persona.png'), :class => "profile-picture") %>
+              <div class="name-and-profile">
+                <h3 class="ms-1 mb-2 text-2xl">Name</h3>
+                <div class="ms-1 rating d-flex">
+                  <p> 4,5</p>
+                  <div class="stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-      <%# trending 2 %>
-      <div class="flex flex-wrap m-3">
-        <div class="flex flex-col p-3">
-          <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
-            <%= image_tag('persona.png') %>
-            <div class="p-4 flex-1 flex flex-col">
-              <h3 class="mb-4 text-2xl">Name</h3>
-                <div class="mb-4 text-grey-darker text-sm flex-1">
-                  <p>Nice review </p>
-                </div>
-              <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide">See profile</a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <%# SERVICE GRID %>
     <div class="maintcontent w-75 my-3">
     <%# SERVICE 1 %>
       <div class="service-card">
+        <div class="service-content">
         <div class="service-icon">
           <i class="fa-solid fa-bell-concierge"></i>
         </div>
           <p>Service Name</p>
+          </div>
       </div>
       <%# SERVICE 2 %>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fa-solid fa-bell-concierge"></i>
+        </div>
+        <p>Service Name</p>
+      </div>
       <div class="service-card">
         <div class="service-icon">
           <i class="fa-solid fa-bell-concierge"></i>
