@@ -9,7 +9,7 @@
 #   end
 puts "Deleting all users..."
 
-User.destroy_all!
+User.destroy_all
 
 puts "Done."
 
