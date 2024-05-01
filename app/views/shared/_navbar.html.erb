@@ -12,8 +12,8 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
             <li class="nav-item dropdown">
-              <%= current_user.first_name.capitalize %>
-              <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <p><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
+              <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete, turbo_confirm: 'Sign out?'} %>
             </div>
