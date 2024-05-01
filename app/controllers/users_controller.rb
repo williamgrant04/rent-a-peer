@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @services = []
+    @user.services.each { |service| @services << service }
   end
 
   def banner
@@ -10,6 +11,6 @@ class UsersController < ApplicationController
   end
 
   def update_banner
-    
+
   end
 end
