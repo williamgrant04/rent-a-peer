@@ -21,12 +21,12 @@ Service.destroy_all
 puts 'Done.'
 
 puts 'Seeding Services'
-service1 = Service.create!(name: 'Cleaning')
-service2 = Service.create!(name: 'Cooking')
-service3 = Service.create!(name: 'Gardening')
-service4 = Service.create!(name: 'Painting')
-Service.create!(name: 'Plumbing')
-Service.create!(name: 'Tutoring')
+service1 = Service.create!(name: 'Cleaning', icon: "fa-solid fa-soap")
+service2 = Service.create!(name: 'Cooking', icon: "fa-solid fa-utensils")
+service3 = Service.create!(name: 'Gardening', icon: "fa-solid fa-house")
+service4 = Service.create!(name: 'Painting', icon: "fa-solid fa-paintbrush")
+Service.create!(name: 'Plumbing', icon: "fa-solid fa-wrench")
+Service.create!(name: 'Tutoring', icon: "fa-solid fa-graduation-cap")
 puts "Done."
 
 puts "Deleting all user_services..."
