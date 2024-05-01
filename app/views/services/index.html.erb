@@ -74,7 +74,9 @@
         <div class="service-card">
           <div class="service-content">
             <div class="service-icon">
+              <%= link_to service_path(service) do %>
               <i class="fa-solid fa-bell-concierge"></i>
+              <% end %>
             </div>
             <p><%=service.name%></p>
           </div>
