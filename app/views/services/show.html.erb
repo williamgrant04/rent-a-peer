@@ -19,7 +19,7 @@
       <h2>4,2/5</h2>
     </div>
       <p><%=listing.description %></p>
-      <p class="rates"><%=(listing.hourly_rate).round %>€</p>
+      <p class="rates"><%=(listing.hourly_rate).round %>€ / hour</p>
       <a class="btn btn flat" href="#">Book <%=listing.user_service.user.first_name %></a>
       <% end %>
 	</div>
