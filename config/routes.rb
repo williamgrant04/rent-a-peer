@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'services/index'
-  get 'services/show'
+  # get 'services/index'
+  # get 'services/show'
   root to: 'services#index'
   devise_for :users
   resources :user_services, only: %i[new create destroy] do
