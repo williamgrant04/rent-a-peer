@@ -14,6 +14,7 @@
   <div class="user-details">
     <h3><%= @user.location.capitalize %></h3>
     <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+    <%= link_to 'Add Service', new_user_service_path %>
     <div class="service-chips">
       <% @services.each do |service| %>
         <p class="chip"><%= service.name.capitalize %></p>

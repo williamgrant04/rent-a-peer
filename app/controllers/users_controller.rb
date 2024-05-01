@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    @services = []
+    @services = @user.services
   end
 
   def banner
@@ -10,6 +10,6 @@ class UsersController < ApplicationController
   end
 
   def update_banner
-    
+
   end
 end

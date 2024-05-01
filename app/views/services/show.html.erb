@@ -20,7 +20,7 @@
     </div>
       <p><%=listing.description %></p>
       <p class="rates"><%=(listing.hourly_rate).round %>€ / hour</p>
-      <a class="btn btn flat" href="/bookings/new">Book <%=listing.user_service.user.first_name %></a>
+      <%=link_to "Book #{listing.user_service.user.first_name}", new_service_listing_booking_path(@service, listing) %>
       <% end %>
 	</div>
   </div>
