@@ -1,86 +1,27 @@
-<div class="container">
-<div class="services-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/0gqf8nju6pz6/3A6EcER4SuhrqFjAPrwxBq/f125abfda235d8c86637d605df13ed3c/cleaning-tools-hero.jpeg);">
-  <div class="banner-text-container">
-    <h1><%=@service.name%></h1>
-    <p>Who is gonna be your <%=@service.name %> hero ?</p>
+<div class=" mx-5 my-5 container-services-show">
+  <div class="services-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/0gqf8nju6pz6/3A6EcER4SuhrqFjAPrwxBq/f125abfda235d8c86637d605df13ed3c/cleaning-tools-hero.jpeg);">
+    <div class="banner-text-container">
+      <h1><%=@service.name%></h1>
+      <p>Who is gonna be your <%=@service.name %> hero ?</p>
+    </div>
   </div>
-</div>
 <div class="services-headers">
   <h2>Choose from our best <%=@service.name%> peers</h2>
 </div>
 <div class="user-listings">
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
+  <%# <% @user_service.user.each do |user| %>
+  <div class="user-service-card">
+	  <img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
 	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
+    <div class="name-and-rating">
+      <h2>name fo the user</h2>
+      <h2>4,2/5</h2>
     </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
+      <p>description of services</p>
+      <p class="rates">40€/hour</p>
+      <a class="btn btn flat" href="#">Book user name</a>
 	</div>
-</article>
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
-	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
-    </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
-	</div>
-</article>
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
-	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
-    </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
-	</div>
-</article>
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
-	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
-    </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
-	</div>
-</article>
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
-	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
-    </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
-	</div>
-</article>
-<article class="user-service-card">
-	<img src='https://img.freepik.com/free-photo/close-up-portrait-attractive-unshaved-dark-skinned-man-with-afro-hairstyle-smiling-expressing-happiness-while-sitting-park-enjoying-nice-weather-listening-music_176420-19804.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707264000&semt=ais'>
-	<div class="user-service-card__text-column">
-  <div class="name-and-rating">
-		<h2>name fo the user</h2>
-    <h2>4,2/5</h2>
-    </div>
-		<p>description of services</p>
-    <p class="rates">40€/hour</p>
-		<a class="btn btn flat" href="#">Book user name</a>
-	</div>
-</article>
-
+  </div>
+  <%# <% end %>
 </div>
 </div>

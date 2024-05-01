@@ -1,112 +1,19 @@
-.services-banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  border-radius: 10px;
-}
-
-.services-banner h1 {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.557);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 80px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.services-banner p {
-  font-size: 20px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.557);
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-.user-listings {
-  display: grid;
-  grid-template-columns: auto auto auto ;
-	font-family: "Open Sans", sans-serif;
-	min-height: 50vh;
-	flex-direction: column;
-	gap: 2rem;
-	background: white;
-  margin-top: 10px;
-}
 .services-headers {
   margin-top: 15px;
   text-align: center;
-  text-decoration: underline;
-  margin-bottom: 15px;
+  margin-bottom: 45px;
+  background-color: lightgray;
+  border: 0.5rem solid;
+  border-radius: 10px;
+  box-shadow: 0.65rem 0.65rem 0 lightgray;
   h2 {
-    font-size: 60px;
+    font-size: 45px;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-decoration: none;
+    padding: auto;
+    text-shadow: 1px 1px 2px black;
+    color: whitesmoke;
+    align-items: center;
   }
-}
-
-img {
-	display: block;
-	width: 100%;
-}
-
-h2 {
-	margin: 0;
-	font-size: 1.4rem;
-}
-
-.user-service-card {
-	--shadowColor: 187 60% 40%;
-	background: lightgray;
-	max-width: 20rem;
-	width: 100%;
-	box-shadow: 0.65rem 0.65rem 0 lightgray;
-	border-radius: 0.8rem;
-	overflow: hidden;
-	border: 0.5rem solid;
-  position: relative;
-  min-height: 30rem;
-  max-height: 30rem;
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: 0.85rem 0.85rem 0 lightgray;
-  }
-}
-
-.user-service-card img {
-	aspect-ratio: 3 / 2;
-	object-fit: cover;
-	flex: 1 1 300px;
-	outline: 0.5rem solid;
-}
-
-.user-service-card__text-column {
-	padding: min(2rem, 5rem) min(2rem, 5rem) min(2.5rem, 5rem);
-	flex: 1 0 50%;
-}
-
-.user-service-card__text-column > * + * {
-	margin: min(1.5rem, 2.5rem) 0 0 0;
-}
-
-.user-service-card a {
-  position: absolute;
-	display: inline-block;
-	color: black;
-	padding: 0.5rem 1rem;
-	text-decoration: none;
-	background: lightgray;
-	border-radius: 0.6rem;
-	font-weight: 700;
-	border: 0.35rem solid;
-  bottom: 10px;
-  right: 10px;
-}
-
-.rates {
-  position: absolute;
-  bottom: 25px;
-  left: 25px;
-  font-weight: bold;
-}
-.name-and-rating {
-  display: flex;
-  justify-content: space-between;
 }
