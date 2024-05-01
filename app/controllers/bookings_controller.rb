@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking.new(booking_params.except(:listing_id, :user_id))
+    @booking = Booking.new(booking_params.except(:listing_id, :user_id))
     @booking.listing = Listing.find(booking_params[:listing_id])
     @booking.user = current_user # 'Buyer' user is current user
 
