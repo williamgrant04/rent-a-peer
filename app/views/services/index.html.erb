@@ -2,14 +2,15 @@
  <div class="big-text animated tada">Rent-a-Peer</div>
   <div>Catchy Tagline</div>
 </div>
+
 <div class="container">
 <%# HERE IS THE CODE FOR THE SEARCH BAR ⬇️ %>
   <div class="out-search">
     <div class="search">
       <form onsubmit="event.preventDefault();" role="search" id="search-bar">
-      <label for="search">Search for stuff</label>
-      <input id="search" type="search" placeholder="What are you looking for today?" autofocus required />
-      <button type="submit">Search</button>
+        <label for="search">Search for stuff</label>
+        <input id="search" type="search" placeholder="What are you looking for today?" autofocus required />
+        <button type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -21,63 +22,65 @@
     <div class="trendings w-25">
       <div class="trending-card">
         <p class="fs-4">Top rated Peers</p>
-      <%# trending 1 %>
-      <div class="flex flex-wrap">
-        <div class="card position-relative">
-          <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+        <%# trending 1 %>
+        <div class="flex flex-wrap">
+          <div class="card position-relative">
+            <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide">
+              <i class="fa-solid fa-square-arrow-up-right"></i>
+            </a>
             <div class="bio d-flex">
               <%= image_tag(('persona.png'), :class => "profile-picture") %>
               <div class="name-and-profile">
                 <h3 class="ms-1 mb-2 text-2xl">Name</h3>
                 <div class="ms-1 rating d-flex">
-                  <p> 4,5</p>
+                  <p>4.5</p>
                   <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
                   </div>
                 </div>
               </div>
             </div>
-        </div>
-        <div class="card position-relative">
-          <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
+          </div>
+          <div class="card position-relative">
+            <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
             <div class="bio d-flex">
               <%= image_tag(('persona.png'), :class => "profile-picture") %>
               <div class="name-and-profile">
                 <h3 class="ms-1 mb-2 text-2xl">Name</h3>
                 <div class="ms-1 rating d-flex">
-                  <p> 4,5</p>
+                  <p>4.5</p>
                   <div class="stars">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star-half-stroke"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
     <%# SERVICE GRID %>
     <div class="maintcontent w-75 my-3">
-    <%# SERVICE 1 %>
-    <% @services.each do |service| %>
-      <div class="service-card">
-        <div class="service-content">
-          <div class="service-icon">
-            <i class="fa-solid fa-bell-concierge"></i>
-          </div>
+      <%# SERVICE 1 %>
+      <% @services.each do |service| %>
+        <div class="service-card">
+          <div class="service-content">
+            <div class="service-icon">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
             <p><%=service.name%></p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  <%# END OF CODE FOR THE SERVICES GRID %>
+      <% end %>
+      <%# END OF CODE FOR THE SERVICES GRID %>
+    </div>
   </div>
-</div>
 </div>
