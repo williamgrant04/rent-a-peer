@@ -12,16 +12,14 @@
 
 // Setup
 .out-search { box-sizing: border-box; height: 100%; font-size: 10px; } *, *::before, *::after { box-sizing: inherit; }
-
-// Main styles
 .search {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 10vh
-
 }
 
+// Main styles
 #search-bar {
   position: relative;
   width: 30rem;
