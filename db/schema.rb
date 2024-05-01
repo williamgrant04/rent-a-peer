@@ -71,12 +71,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_01_090538) do
   end
 
   create_table "user_services", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "service_id", null: false
+    t.bigint "users_id", null: false
+    t.bigint "services_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["service_id"], name: "index_user_services_on_service_id"
-    t.index ["user_id"], name: "index_user_services_on_user_id"
+    t.index ["services_id"], name: "index_user_services_on_services_id"
+    t.index ["users_id"], name: "index_user_services_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +100,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_01_090538) do
   add_foreign_key "listings", "user_services"
   add_foreign_key "reviews", "user_services"
   add_foreign_key "reviews", "users"
-  add_foreign_key "user_services", "services"
-  add_foreign_key "user_services", "users"
+  add_foreign_key "user_services", "services", column: "services_id"
+  add_foreign_key "user_services", "users", column: "users_id"
 end

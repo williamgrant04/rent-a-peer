@@ -1,7 +1,28 @@
 class ListingsController < ApplicationController
-  before_action :set_user_service, only: %i[create]
+  before_action :set_service
 
   def new
     @listing = Listing.new
+  end
+
+  def create
+    @listing = Listing.new(listing_params)
+    @listing.user_service = UserService.find_by(service: params[:services_id], user: current_user)
+
+    if @listing.save
+      redirect_to @listing, notice: 'Listing was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def set_service
+    @service = Service.find(params[:service_id])
+  end
+
+  def listing_params
+    params.require(:listing).permit(:title, :description, :listing_image, :hourly_rate)
   end
 end

@@ -3,7 +3,7 @@ class Listing < ApplicationRecord
   has_one_attached :listing_image
 
   validates :title, presence: true
-  validates :descprition, presence: true
+  validates :description, presence: true
   validates :hourly_rate, presence: true, numericality: true
   validates :user_service_id, presence: true
 end
