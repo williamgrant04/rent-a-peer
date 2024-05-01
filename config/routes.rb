@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get "profile", to: "users#show"
+  get "profile", to: "users#profile"
+  get "user/:id/profile", to: "users#show", as: :user_profile
   get "banner-partial", to: "users#banner"
   resources :bookings, only: %i[destroy]
 end

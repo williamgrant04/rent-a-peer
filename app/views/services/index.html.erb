@@ -1,85 +1,45 @@
-<div class="banner animated tada">
-  <div class="big-text animated tada">Rent-a-Peer</div>
-  <div>We promise you won't be murdered!</div>
+<div class="banner">
+  <h1>Rent-a-peer</h1>
+  <h2>We promise you won't be murdered!</h2>
 </div>
 
-<div class="container">
-<%# HERE IS THE CODE FOR THE SEARCH BAR ⬇️ %>
-  <div class="out-search">
-    <div class="search">
-      <form onsubmit="event.preventDefault();" role="search" id="search-bar">
-        <label for="search">Search for stuff</label>
-        <input id="search" type="search" placeholder="What are you looking for today?" autofocus required />
-        <button type="submit">Search</button>
-      </form>
-    </div>
+<div class="homepage">
+  <div class="search-bar-container">
+    <form action="/" method="get" data-controller="search-bar">
+      <input class="search-input" type="text" name="service" placeholder="What are you looking for today?" data-search-bar-target="input" data-action="input->search-bar#typeUpdate blur->search-bar#blur focus->search-bar#focus">
+      <input class="search-button hidden" type="submit" value="Search" data-search-bar-target="button">
+    </form>
   </div>
-  <%# END OF CODE FOR THE SEARCH BAR %>
-  <%# HERE IS THE CODE FOR THE SERVICES GRID ⬇️ %>
-  <%# <% for each services do |service| %>
-  <div class="bottom-container d-flex">
-  <%# HERE IS THE CODE FOR THE TRENDINGS ⬇️ %>
-    <div class="trendings w-25">
-      <div class="trending-card">
-        <p class="fs-4">Top rated Peers</p>
-        <%# trending 1 %>
-        <div class="flex flex-wrap">
-          <div class="card position-relative">
-            <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide">
-              <i class="fa-solid fa-square-arrow-up-right"></i>
-            </a>
-            <div class="bio d-flex">
-              <%= image_tag(('persona.png'), :class => "profile-picture") %>
-              <div class="name-and-profile">
-                <h3 class="ms-1 mb-2 text-2xl">Name</h3>
-                <div class="ms-1 rating d-flex">
-                  <p>4.5</p>
-                  <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card position-relative">
-            <a href="#" class="link text-xs text-grey hover:text-red uppercase no-underline tracking-wide"><i class="fa-solid fa-square-arrow-up-right"></i></a>
-            <div class="bio d-flex">
-              <%= image_tag(('persona.png'), :class => "profile-picture") %>
-              <div class="name-and-profile">
-                <h3 class="ms-1 mb-2 text-2xl">Name</h3>
-                <div class="ms-1 rating d-flex">
-                  <p>4.5</p>
-                  <div class="stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="main-content w-75 my-3">
-      <% @services.each do |service| %>
-        <div class="service-card">
-          <div class="service-content">
-            <div class="service-icon">
-              <%= link_to service_path(service) do %>
-                <i class="fa-solid fa-bell-concierge"></i>
-              <% end %>
-            </div>
 
-            <p><%= service.name %></p>
+  <div class="content">
+    <div class="top-rated">
+      <h2>Top rated Peers</h2>
+
+      <% @top_rated.each do |peer| %>
+        <%= link_to user_profile_path(peer), class: "peer" do %>
+          <%= cl_image_tag(peer.profile_image.key, width: 60, height: 60, crop: :fill, class: "peer-profile-image") %>
+          <div class="details">
+            <p><%= peer.first_name %> <%= peer.last_name %></p>
+            <div class="rating">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="services">
+      <% @services.each do |service| %>
+        <%= link_to service_path(service), class: "service-card" do %>
+          <div class="service-icon">
+            <i class="<%= service.icon %>"></i>
+          </div>
+          <p><%= service.name %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
