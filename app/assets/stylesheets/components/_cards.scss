@@ -70,7 +70,7 @@
 .bookings-info {
   --shadowColor: 187 60% 40%;
 	background: lightgray;
-	max-width: 30rem;
+	max-width: 20rem;
 	width: 100%;
 	box-shadow: 0.65rem 0.65rem 0 lightgray;
 	border-radius: 0.8rem;
@@ -83,8 +83,6 @@
 .main-info {
   display: grid;
   grid-template-columns: auto auto;
-
-  gap: 20px;
 }
 
 .seller-info {

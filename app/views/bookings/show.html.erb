@@ -1,5 +1,5 @@
 <div class=" mx-5 my-5 container-services-show">
-<%=link_to "Homepage", root_path, class: "btn btn-primary mb-3"%>
+<%=link_to "Back to #{@service.name}", service_path(@service), class: "btn btn-primary mb-3"%>
   <div class="booking-show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/0gqf8nju6pz6/3A6EcER4SuhrqFjAPrwxBq/f125abfda235d8c86637d605df13ed3c/cleaning-tools-hero.jpeg);">
     <div class="banner-text-container">
       <h1>Dear <%= @user.first_name %>, your booking is done!</h1>
