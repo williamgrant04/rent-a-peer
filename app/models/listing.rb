@@ -1,5 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user_service
+  has_one_attached :listing_image
 
   validates :title, presence: true
   validates :descprition, presence: true
