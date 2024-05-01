@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
-    @services = []
-    @user.services.each { |service| @services << service }
+    @services = @user.services
   end
 
   def banner
