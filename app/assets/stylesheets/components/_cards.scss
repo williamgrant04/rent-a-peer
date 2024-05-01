@@ -66,3 +66,48 @@
   justify-content: space-between;
 }
 // CARDS FROM SERVICES#SHOW : END
+// CARDS FROM BOOKINGS#SHOW : BEGIN
+.bookings-info {
+  --shadowColor: 187 60% 40%;
+	background: lightgray;
+	max-width: 20rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 lightgray;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+  position: relative;
+  min-height: 20rem;
+  max-height: 20rem;
+}
+.main-info {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.seller-info {
+  --shadowColor: 187 60% 40%;
+	background: lightgray;
+	max-width: 30rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 lightgray;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+  position: relative;
+  min-height: 20rem;
+  max-height: 20rem;
+  img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    flex: 1 1 300px;
+  }
+  .seller-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
