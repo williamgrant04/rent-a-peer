@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   end
 
   resources :services, only: %i[show] do
-    resources :listings, only: %i[new create]
+    resources :listings, only: %i[new create show] do
+      resources :bookings, only: %i[show new create edit update] # Should be nested in listings
+    end
   end
-  
+
   get "profile", to: "users#show"
   get "banner-partial", to: "users#banner"
-  resources :bookings, only: %i[new create edit update] # Should be nested in listings
   resources :bookings, only: %i[destroy]
 end
