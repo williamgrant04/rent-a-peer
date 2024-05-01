@@ -5,5 +5,7 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @listings = Listing.where(user_service: UserService.find_by(service: @service))
   end
+
 end
