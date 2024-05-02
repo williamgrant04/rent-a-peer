@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
-    @services = @user.services
+    @services = @user.user_services
     @listings = @user.listings
     @bookings = @user.bookings
   end

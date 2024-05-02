@@ -16,6 +16,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+    @bookings = @listing.bookings
+  end
+
   private
 
   def set_service
