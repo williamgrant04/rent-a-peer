@@ -1,10 +1,7 @@
+<%# This page is the one that shows when you go to /user/:id/profile so no edit actions should be available %>
+
 <div class="page">
-  <div class="banner-image" data-controller="banner-select" data-action="click->banner-select#showEditModal" data-modal-active="false">
-    <% if @user.banner_image.key %>
-      <%= cl_image_tag(@user.banner_image.key) %>
-    <% else %>
-      <div class="no-image"></div>
-    <% end %>
+  <div class="banner-image" style='background-image: url(<%= @user.banner_image.key ? "#{cl_image_path @user.banner_image.key}" : "" %>);'>
   </div>
 
   <div class="profile-image">
@@ -14,13 +11,12 @@
   <div class="user-details">
     <h3><%= @user.location.capitalize %></h3>
     <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    <%= link_to 'Add Service', new_user_service_path %>
+    <h3><%= @user.first_name.capitalize %>'s services</h3>
+    <%= link_to 'Add Service', new_user_service_path, class: "new-service" %>
     <div class="service-chips">
       <% @services.each do |service| %>
-        <p class="chip"><%= service.name.capitalize %></p>
+        <%= link_to service.name.capitalize, service_path(service), class: "chip" %>
       <% end %>
     </div>
   </div>
 </div>
-
-<div id="editBannerModalRoot"></div>
