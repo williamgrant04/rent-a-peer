@@ -7,10 +7,9 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
-    @listing.user_service = UserService.find_by(service: params[:services_id], user: current_user)
-
+    @listing.user_service = UserService.find_by(service: params[:service_id], user: current_user)
     if @listing.save
-      redirect_to @listing, notice: 'Listing was successfully created.'
+      redirect_to service_path(params[:service_id])
     else
       render :new, status: :unprocessable_entity
     end

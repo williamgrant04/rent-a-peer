@@ -1,7 +1,14 @@
-<%= simple_form_for [@service, @listing] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :listing_image %>
-  <%= f.input :hourly_rate %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <div>
+    <h1>Create a new <%= @service.name.downcase %> listing</h1>
+  </div>
+  <div class="w-50">
+    <%= simple_form_for [@service, @listing] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :listing_image %>
+      <%= f.input :hourly_rate %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

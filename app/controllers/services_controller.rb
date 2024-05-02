@@ -10,6 +10,6 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
-    @listings = Listing.where(user_service: UserService.find_by(service: @service))
+    @listings = Listing.where(user_service: UserService.where(service_id: @service))
   end
 end
