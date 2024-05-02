@@ -1,21 +1,38 @@
-<%# This page is the one that shows when you go to /user/:id/profile so no edit actions should be available %>
+<%# This page is the one that shows when you go to /user/id/profile so edit actions aren't available %>
 
 <div class="page">
   <div class="banner-image" style='background-image: url(<%= @user.banner_image.key ? "#{cl_image_path @user.banner_image.key}" : "" %>);'>
   </div>
 
   <div class="profile-image">
-    <%= cl_image_tag(@user.profile_image.key) %>
+    <%= cl_image_tag(@user.profile_image.key, crop: :fill, height: 250, width: 250) %>
   </div>
 
   <div class="user-details">
     <h3><%= @user.location.capitalize %></h3>
     <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    <h3><%= @user.first_name.capitalize %>'s services</h3>
-    <%= link_to 'Add Service', new_user_service_path, class: "new-service" %>
-    <div class="service-chips">
-      <% @services.each do |service| %>
-        <%= link_to service.name.capitalize, service_path(service), class: "chip" %>
+  </div>
+  
+  <div class="show-details-grid">
+    <div class="services grid-item">
+      <h3><%= @user.first_name %>'s services</h3>
+      <div class="service-chips">
+        <% @services.each do |service| %>
+          <%= link_to service.name.capitalize, service_path(service), class: "chip" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="listings grid-item">
+      <h3><%= @user.first_name %>'s listings</h3>
+      <% @listings.each do |listing| %>
+        <div class="listing">
+          <img src='<%= listing.listing_image.key ? "#{cl_image_path listing.listing_image.key}" : "https://placehold.co/200" %>' alt="Listing image">
+          <div class="listing-details">
+            <h4><%= listing.title %></h4>
+            <p><%= listing.description %></p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
