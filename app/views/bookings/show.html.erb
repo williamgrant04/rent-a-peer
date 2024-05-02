@@ -1,0 +1,29 @@
+<div class=" mx-5 my-5 container-services-show">
+<%=link_to "Back to #{@service.name}", service_path(@service), class: "btn btn-primary mb-3"%>
+  <div class="booking-show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/0gqf8nju6pz6/3A6EcER4SuhrqFjAPrwxBq/f125abfda235d8c86637d605df13ed3c/cleaning-tools-hero.jpeg);">
+    <div class="banner-text-container">
+      <h1>Dear <%= @user.first_name %>, your booking is done!</h1>
+      <p>You'll find all the details below:</p>
+    </div>
+  </div>
+  <div class="main-info">
+  <div class="bookings-info">
+  <h4>Booked service : <strong><%=@service.name%></strong></h4>
+  <p>Your booking starts on: <%= @booking.start_date %></p>
+  <p>Your booking ends on: <%= @booking.end_date %></p>
+  <p>Hourly rate: <%= @listing.hourly_rate %>€ / hour</p>
+  <p><em><%=@listing.description %></em></p>
+  </div>
+  <div class="seller-info">
+    <div class="seller-service-card">
+	    <img src=<%=cl_image_path(@user.profile_image.key)%>
+	  <div class="seller-service-card__text-column">
+      <div class="seller-name">
+        <h2><%=@user.first_name %></h2>
+        <h4>4,2/5</h4>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>

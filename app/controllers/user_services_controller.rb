@@ -10,7 +10,11 @@ class UserServicesController < ApplicationController
     @user_service = UserService.new
     @user_service.service = Service.find_by(name: user_service_params[:service])
     @user_service.user = current_user
-    @user_service.save
+    if @user_service.save
+      redirect_to profile_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

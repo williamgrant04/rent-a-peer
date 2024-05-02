@@ -16,7 +16,34 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-.navbar-lewagon .nav-item img {
-  width: 40px; /* Adjust the width of the other image */
-  height: auto; /* Maintain aspect ratio */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 80px;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  .avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+
+    p {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+      margin-right: 10px;
+    }
+
+    .dropdown-item {
+      width: initial;
+    }
+  }
 }

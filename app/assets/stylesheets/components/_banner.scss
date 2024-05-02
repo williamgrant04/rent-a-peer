@@ -3,7 +3,73 @@
   font-weight:800;
   animation-delay: 1s;
 }
+// BANNER FROM SERVICES#SHOW : BEGIN
+.services-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  border-radius: 10px;
+  border: 0.5rem solid;
+  box-shadow: 0.65rem 0.65rem 0 lightgray;
+  margin-bottom: 30px;
+}
 
+.services-banner h1 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.557);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.services-banner p {
+  font-size: 20px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.557);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.user-listings {
+  display: grid;
+  grid-template-columns: auto auto auto auto ;
+  gap: 10px;
+	font-family: "Open Sans", sans-serif;
+	min-height: 50vh;
+	flex-direction: column;
+	gap: 2rem;
+	background: white;
+  margin-top: 10px;
+}
+// BANNER FROM SERVICES#SHOW : END
+// BANNER FROM BOOKINGS#SHOW : BEGIN
+.booking-show-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  border-radius: 10px;
+  border: 0.5rem solid;
+  box-shadow: 0.65rem 0.65rem 0 lightgray;
+  margin-bottom: 30px;
+}
+
+.booking-show-banner h1 {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.booking-show-banner p {
+  font-size: 20px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 // I think this is redundant but I'm leaving it here just in case
 // .banner a {
 //   display: inline-block;

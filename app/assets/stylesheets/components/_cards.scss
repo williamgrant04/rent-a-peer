@@ -1,0 +1,113 @@
+// CARDS FROM SERVICES#SHOW : BEGIN
+.user-service-card {
+	--shadowColor: 187 60% 40%;
+	background: lightgray;
+	max-width: 20rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 lightgray;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+  position: relative;
+  min-height: 35rem;
+  max-height: 35rem;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0.85rem 0.85rem 0 lightgray;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.user-service-card img {
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	flex: 1 1 300px;
+	outline: 0.5rem solid;
+}
+
+.user-service-card__text-column {
+	padding: min(2rem, 5rem) min(2rem, 5rem) min(2.5rem, 5rem);
+	flex: 1 0 50%;
+}
+
+.user-service-card__text-column > * + * {
+	margin: min(1.5rem, 2.5rem) 0 0 0;
+}
+
+.user-service-card a {
+  position: absolute;
+	display: inline-block;
+	color: black;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	background: lightgray;
+	border-radius: 0.6rem;
+	font-weight: 700;
+	border: 0.35rem solid;
+  bottom: 10px;
+  right: 10px;
+}
+
+.rates {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  font-weight: bold;
+}
+.name-and-rating {
+  display: flex;
+  justify-content: space-between;
+}
+// CARDS FROM SERVICES#SHOW : END
+// CARDS FROM BOOKINGS#SHOW : BEGIN
+.bookings-info {
+  --shadowColor: 187 60% 40%;
+	background: lightgray;
+	max-width: 20rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 lightgray;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+  position: relative;
+  min-height: 20rem;
+  max-height: 20rem;
+}
+.main-info {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.seller-info {
+  --shadowColor: 187 60% 40%;
+	background: lightgray;
+	max-width: 30rem;
+	width: 100%;
+	box-shadow: 0.65rem 0.65rem 0 lightgray;
+	border-radius: 0.8rem;
+	overflow: hidden;
+	border: 0.5rem solid;
+  position: relative;
+  min-height: 20rem;
+  max-height: 20rem;
+  img {
+    position: absolute;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    flex: 1 1 300px;
+  }
+  .seller-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
