@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    average_rating
   end
 
   def destroy
@@ -29,5 +30,12 @@ class ReviewsController < ApplicationController
 
   def set_user_service
     @user_service = UserService.find(params[:user_service_id])
+  end
+
+  def average_rating
+    ratings = []
+    @user_service.reviews.each { |review| ratings << review.rating }
+    @user_service.average_rating = ratings.sum.fdiv(ratings.size)
+    @user_service.save
   end
 end
