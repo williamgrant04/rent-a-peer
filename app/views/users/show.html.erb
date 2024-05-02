@@ -12,7 +12,7 @@
     <h3><%= @user.location.capitalize %></h3>
     <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
   </div>
-  
+
   <div class="show-details-grid">
     <div class="services grid-item">
       <h3><%= @user.first_name %>'s services</h3>
@@ -26,11 +26,13 @@
     <div class="listings grid-item">
       <h3><%= @user.first_name %>'s listings</h3>
       <% @listings.each do |listing| %>
-        <div class="listing">
+        <div class="listing text-center">
           <img src='<%= listing.listing_image.key ? "#{cl_image_path listing.listing_image.key}" : "https://placehold.co/200" %>' alt="Listing image">
           <div class="listing-details">
             <h4><%= listing.title %></h4>
             <p><%= listing.description %></p>
+            <%= link_to "RAP #{listing.user_service.user.first_name.capitalize}",
+            new_service_listing_booking_path(listing.user_service.service, listing), class: "view-requests" %>
           </div>
         </div>
       <% end %>
