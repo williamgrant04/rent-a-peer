@@ -10,7 +10,8 @@
   padding: 150px 0;
   border-radius: 10px;
   margin-bottom: 30px;
-
+  max-height: 25px;
+  position: relative;
 }
 
 .services-banner h1 {
@@ -20,6 +21,10 @@
   font-size: 80px;
   font-weight: bold;
   text-align: center;
+  vertical-align: baseline;
+  position: absolute;
+  top: 50px;
+  left: 650px;
 }
 
 .services-banner p {
@@ -48,9 +53,9 @@
   background-position: center;
   padding: 150px 0;
   border-radius: 10px;
-  border: 0.5rem solid;
-  box-shadow: 0.65rem 0.65rem 0 lightgray;
   margin-bottom: 30px;
+  max-height: 25px;
+
 }
 
 .booking-show-banner h1 {
@@ -63,7 +68,7 @@
 }
 
 .booking-show-banner p {
-  font-size: 20px;
+  font-size: 35px;
   text-align: center;
   color: rgb(255, 255, 255);
   opacity: .7;
