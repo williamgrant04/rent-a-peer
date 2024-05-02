@@ -33,7 +33,7 @@ Service.create!(name: 'Filming', icon: "fa-solid fa-clapperboard")
 Service.create!(name: 'Writing', icon: "fa-solid fa-pen")
 Service.create!(name: 'Murdering', icon: "fa-solid fa-skull")
 Service.create!(name: 'Floristry', icon: "fa-solid fa-fan")
-Service.create!(name: 'Sewing', icon: "fa-solid fa-shoelace")
+Service.create!(name: 'Sewing', icon: "fa-solid fa-map-pin")
 Service.create!(name: 'Hair dressing', icon: "fa-solid fa-scissors")
 puts "Done."
 

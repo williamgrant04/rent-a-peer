@@ -5,8 +5,10 @@ export default class extends Controller {
   static targets = ["button", "input"]
 
   connect() {
-    console.log(this.inputTarget)
-    console.log(this.buttonTarget)
+    if (this.inputTarget.value !== "") {
+      this.buttonTarget.classList.remove("hidden")
+      this.inputTarget.classList.add("focused")
+    }
   }
 
   typeUpdate(e) {

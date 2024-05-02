@@ -6,7 +6,7 @@
 <div class="homepage">
   <div class="search-bar-container">
     <form action="/" method="get" data-controller="search-bar">
-      <input class="search-input" type="text" name="service" placeholder="What are you looking for today?" data-search-bar-target="input" data-action="input->search-bar#typeUpdate blur->search-bar#blur focus->search-bar#focus">
+      <input class="search-input" type="text" name="service" placeholder="What are you looking for today?" value="<%= params[:service] %>" data-search-bar-target="input" data-action="input->search-bar#typeUpdate blur->search-bar#blur focus->search-bar#focus">
       <input class="search-button hidden" type="submit" value="Search" data-search-bar-target="button">
     </form>
   </div>
