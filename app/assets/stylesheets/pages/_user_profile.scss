@@ -6,7 +6,7 @@
 }
 
 .banner-image {
-  background-color: rgb(180, 180, 180);
+  background-color: $primary;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -51,9 +51,13 @@
   gap: 20px;
 
   .grid-item {
-    background-color: rgb(230, 230, 230);
+    background-color: $dark;
     padding: 20px 40px;
     border-radius: 16px;
+
+    h3 {
+      font-weight: bold;
+    }
   }
 
   .services {
@@ -69,13 +73,13 @@
       text-decoration: none;
       text-align: center;
       color: black;
-      background-color: rgb(200, 200, 200);
+      background-color: $secondary;
       border-radius: 16px;
       padding: 5px 15px;
       transition: 0.3s;
 
       &:hover {
-        background-color: rgb(180, 180, 180);
+        background-color: $tertiary;
         border-radius: 8px;
       }
     }
@@ -91,12 +95,12 @@
         color: black;
         text-decoration: none;
         padding: 4px 16px;
-        background-color: rgb(200, 200, 200);
+        background-color: $accent;
         margin: 5px 0;
         transition: 0.3s;
 
         &:hover {
-          background-color: rgb(180, 180, 180);
+          background-color: $hover;
           border-radius: 8px;
         }
       }
@@ -109,7 +113,7 @@
     }
 
     .listing {
-      background-color: rgb(200, 200, 200);
+      background-color: $accent;
       margin: 15px 0;
       border-radius: 16px;
       display: flex;
@@ -150,7 +154,7 @@
     }
 
     .booking {
-      background-color: rgb(200, 200, 200);
+      background-color: $accent;
       color: black;
       text-decoration: none;
       margin: 15px 0;
@@ -162,7 +166,7 @@
       transition: 0.3s;
 
       &:hover {
-        background-color: rgb(180, 180, 180);
+        background-color: $hover;
         border-radius: 8px;
       }
 
