@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_user_service, only: %i[create]
+  before_action :set_user_service, only: %i[new create]
 
   def new
     @review = Review.new
@@ -9,7 +9,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.user_service = @user_service
-    @review.save
+    if @review.save
+      redirect_to @user_service.service
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy

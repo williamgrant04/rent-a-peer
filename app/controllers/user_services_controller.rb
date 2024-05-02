@@ -27,4 +27,8 @@ class UserServicesController < ApplicationController
   def user_service_params
     params.require(:user_service).permit(:service)
   end
+
+  def set_average_rating
+
+  end
 end
