@@ -1,19 +1,26 @@
 <div class="form-container">
   <div class="form">
     <div class="form-image">
-      <h2 class="form-heading">
-        Confirm your booking
-        <small>user_name - user_rates</small>
-      </h2>
+      <img src=<%=cl_image_path(@listing.user_service.user.profile_image.key)%>'>
+        <h2 class="form-heading">
+          <%=@listing.user_service.user.first_name%> is you <%=@service.name.downcase%> hero
+        </h2>
+      </div>
+    <div class="card-form"></div>
+  <%= simple_form_for [@service, @listing, @booking] do |f| %>
+    <h3><%=@service.name %><small class="small-text"> (<%= @listing.hourly_rate.round%>€ / hour)</small></h3>
+    <%= f.input :start_date, as: :string, input_html: { data: { controller: "booking-pick-date" } }, class: "input-field" %>
+    <%= f.input :end_date, as: :string, input_html: { data: { controller: "booking-pick-date" } }, class: "input-field"  %>
+    <div class="action">
+      <%= f.submit "Yes!", class: "action-button" %>
+      <%=link_to 'No..', 'service_path(@service)', class:"action-button" %>
+      <%# need to fix the "no.." button path %>
     </div>
-<%= simple_form_for [@service, @listing, @booking] do |f| %>
-  <%= f.input :start_date, as: :string, input_html: { data: { controller: "booking-pick-date" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { controller: "booking-pick-date" } }  %>
-  <%= f.submit %>
-<% end %>
-<div class="form-info">
-  <p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
-</div>
-</div>
-<%=link_to "Changed you mind?", 'service_listing_booking_path', class:"btn btn-flat"%>
+  <% end %>
+    </div>
+  <div class="form-info">
+    <p>By booking this <%=@service.name.downcase%> service you are agreeing to our <a href="#">Terms and Conditions</a></p>
+  </div>
+  </div>
+
 </div>
