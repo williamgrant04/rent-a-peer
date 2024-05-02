@@ -19,6 +19,11 @@
   }
 }
 
+.name-and-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
 .user-service-card img {
 	aspect-ratio: 3 / 2;
 	object-fit: cover;
