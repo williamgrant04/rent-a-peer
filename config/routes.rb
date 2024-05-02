@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root to: 'services#index'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
+
   resources :user_services, only: %i[new create destroy] do
     resources :reviews, only: %i[new create destroy]
   end
