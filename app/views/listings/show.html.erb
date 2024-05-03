@@ -1,16 +1,32 @@
-<div class="container text-center">
-  <h1><%= @listing.title %></h1>
+<div class="container">
+  <%= link_to "Back to Profile", profile_path, class: "btn btn-secondary m-3" %>
+  <h1  class="text-center"><%= @listing.title %></h1>
 
   <% @bookings.each do |booking| %>
     <div>
-      <div class="p-3 border m-3">
+      <div class="booking-card my-3">
+          <div class="seller-picture">
+	          <img src=<%=cl_image_path(@listing.user_service.user.profile_image.key)%>'>
+          </div>
+
+          <h2 class="seller-name"><strong><%=@listing.user_service.user.first_name %></strong></h2>
+          <div class="user-service-card__text-column">
         <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
         <p>Starts: <%= booking.start_date %></p>
         <p>Ends: <%= booking.end_date %></p>
-      <div>
-        <%= link_to "Confirm RAP", service_listing_booking_path(params[:service_id], booking.listing, booking), data: { turbo_method: :patch } %>
-        <%= link_to "Reject RAP", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Reject and delete this RAP request?" } %>
-      </div>
+
+        <% if booking.accepted != true %>
+        <div class="mt-4">
+        <%= link_to "Confirm RAP", service_listing_booking_path(params[:service_id], booking.listing, booking), data: { turbo_method: :patch }, class: "btn btn-secondary" %>
+        <%= link_to "Reject RAP", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Reject and delete this RAP request?" }, class: "btn btn-cancel cancel-button" %>
+        </div>
+        <% end %>
+        <% if booking.accepted %>
+          <p class="text-center" style="width: 35%; background-color: rgba(0, 255, 0, 0.5); padding: 4px 10px; border-radius: 16px">RAP accepted!</p>
+          <%= link_to "Cancel RAP", booking_path(booking), data: { turbo_method: :delete, trubo_confirm: "Delete this RAP request?" }, class: "btn btn-cancel cancel-button" %>
+        <% end %>
+          </div>
+
       </div>
 
     </div>
