@@ -13,11 +13,6 @@
       <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
     </div>
 
-    <div class="user-details">
-      <h3><%= @user.location.capitalize %></h3>
-      <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    </div>
-
     <div class="details-grid">
       <div class="services grid-item">
         <h3>Your services</h3>
@@ -52,12 +47,25 @@
          <%= link_to service_listing_booking_path(booking.listing.user_service.service, booking.listing, booking), class: "booking" do %>
             <h4><%= booking.listing.title %></h4>
             <h5><%= booking.listing.user_service.service.name %></h5>
-            <p><%= booking.start_date.strftime('%A %e %b %Y') %> - <%= booking.end_date.strftime('%A %e %b %Y') %></p>
-            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
+            <p>From: <%= booking.start_date.strftime('%A %e %b %Y') %> <br> To: <%= booking.end_date.strftime('%A %e %b %Y') %></p>
+              <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
           <% end %>
+          <%= link_to "Review #{booking.listing.user_service.user.first_name}", "new_user_service_review_path", class: "review-button"%>
         <% end %>
       </div>
     </div>
+  <% @reviews.each do |review| %>
+    <div class="review-card">
+      <img src='#{cl_image_path review.user.profile_image.key}' alt="#{review.user.first_name}">
+      <h2 class="buyer-name"><strong><%=review.user.first_name%></strong></h2>
+        <div class="given-rating">
+          <p class="class="ms-3""><strong class="ms-3"><%=review.rating%> <i class="fa-solid fa-star"></i> </strong></p>
+          <h4 class="ms-3"><%=review.user_service.listing.title%></h4>
+          <h6 class="ms-3"><%=review.title%></h6>
+          <p class="ms-3"><%=review.content%></p>
+        </div>
+      </div>
+      <% end %>
   </div>
 
   <div id="editBannerModalRoot"></div>

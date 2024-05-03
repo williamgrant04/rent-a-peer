@@ -173,6 +173,7 @@
       .acceptance {
         padding: 5px 10px;
         border-radius: 16px;
+        position: relative;
 
         &.accepted {
           background-color: rgba(0, 255, 0, 0.5);
@@ -188,4 +189,62 @@
 
 .show-details-grid {
   grid-template-columns: 1fr 4fr;
+}
+
+.review-button {
+  border-radius: 16px;
+  text-decoration: none;
+  color: black;
+  background-color: $secondary;
+  padding: 5px 10px;
+  justify-content: center;
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+
+.review-card {
+  display: grid;
+  grid-template-columns: 15rem auto;
+	--shadowColor: 187 60% 40%;
+	background: #e2dfda;
+	width: 88%;
+	border-radius: 0.8rem;
+	overflow: hidden;
+  height: 10rem;
+  position: relative;
+  img {
+    display: block;
+    width: 100%;
+  }
+  margin: 0 6% 50px;
+
+}
+.review-card img {
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+  height: 100%;
+	flex: 1 1 300px;
+	outline: 0.25rem solid;
+  max-width: 15rem;
+  }
+
+.review-grid {
+  position: relative;
+}
+.buyer-name {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+}
+
+.user-rating {
+  position: absolute;
+  bottom: 3px;
+  left: 300px;
+}
+.given-rating {
+  display: grid;
+  grid-template-rows: auto auto auto auto;
 }
