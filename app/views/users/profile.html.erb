@@ -13,11 +13,6 @@
       <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
     </div>
 
-    <div class="user-details">
-      <h3><%= @user.location.capitalize %></h3>
-      <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    </div>
-
     <div class="details-grid">
       <div class="services grid-item">
         <h3>Your services</h3>
@@ -53,11 +48,24 @@
             <h4><%= booking.listing.title %></h4>
             <h5><%= booking.listing.user_service.service.name %></h5>
             <p><%= booking.start_date.strftime('%A %e %b %Y') %> - <%= booking.end_date.strftime('%A %e %b %Y') %></p>
-            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
+            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "RAP accepted!" : "Not accepted" %></p>
           <% end %>
+          <%= link_to "Review #{booking.listing.user_service.user.first_name}", "new_user_service_review_path", class: "review-button"%>
         <% end %>
       </div>
     </div>
+  <% @reviews.each do |review| %>
+    <div class="review-card">
+      <%=cl_image_tag(review.user.profile_image.key, class:"img")%>
+      <h2 class="buyer-name"><strong><%=review.user.first_name%></strong></h2>
+        <div class="given-rating">
+          <p class="class="ms-3""><strong class="ms-3"><%=review.rating%> <i class="fa-solid fa-star"></i> </strong></p>
+          <h4 class="ms-3"><%=review.user_service.service.name%></h4>
+          <h6 class="ms-3"><%=review.title%></h6>
+          <p class="ms-3"><%=review.content%></p>
+        </div>
+      </div>
+      <% end %>
   </div>
 
   <div id="editBannerModalRoot"></div>

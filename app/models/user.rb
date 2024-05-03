@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
   has_many :listings, through: :user_services
+  has_many :reviews, through: :user_services #added to access it from the user
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
