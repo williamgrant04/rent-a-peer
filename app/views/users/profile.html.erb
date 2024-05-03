@@ -59,7 +59,7 @@
       <%=cl_image_tag(review.user.profile_image.key, class:"img")%>
       <h2 class="buyer-name"><strong><%=review.user.first_name%></strong></h2>
         <div class="given-rating">
-          <p class="class="ms-3""><strong class="ms-3"><%=review.rating%> <i class="fa-solid fa-star"></i> </strong></p>
+          <p class="ms-3"><strong class="ms-3"><%=review.rating%> <i class="fa-solid fa-star"></i> </strong></p>
           <h4 class="ms-3"><%=review.user_service.service.name%></h4>
           <h6 class="ms-3"><%=review.title%></h6>
           <p class="ms-3"><%=review.content%></p>
