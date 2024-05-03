@@ -11,10 +11,11 @@ class UsersController < ApplicationController
     @services = @user.user_services
     @listings = @user.listings
     @bookings = @user.bookings
-    @reviews = []
-    @services.each do |us|
-      @reviews << us.reviews
-    end
+    @reviews = @user.reviews
+    # @services.each do |us|
+    #   @reviews << us.reviews
+    # end
+    # @reviews
   end
 
   def banner
