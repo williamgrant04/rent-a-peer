@@ -1,26 +1,64 @@
-<div class="page">
-  <div class="banner-image" data-controller="banner-select" data-action="click->banner-select#showEditModal" data-modal-active="false">
-    <% if @user.banner_image.key %>
-      <%= cl_image_tag(@user.banner_image.key) %>
-    <% else %>
-      <div class="no-image"></div>
-    <% end %>
-  </div>
+<%# This page is the one that shows when you go to /profile so edit actions are available %>
+<div class="page-wrapper" data-controller="banner-select">
+  <div class="page">
+    <div class="banner-image" style='background-image: url(<%= @user.banner_image.key ? "#{cl_image_path @user.banner_image.key}" : "" %>);' data-action="click->banner-select#showEditModal" data-modal-active="false">
+    </div>
 
-  <div class="profile-image">
-    <%= cl_image_tag(@user.profile_image.key) %>
-  </div>
+    <div class="profile-image">
+      <%= cl_image_tag(@user.profile_image.key, crop: :fill, height: 250, width: 250) %>
+    </div>
 
-  <div class="user-details">
-    <h3><%= @user.location.capitalize %></h3>
-    <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    <%= link_to 'Add Service', new_user_service_path %>
-    <div class="service-chips">
-      <% @services.each do |service| %>
-        <p class="chip"><%= service.name.capitalize %></p>
-      <% end %>
+    <div class="user-details">
+      <h3><%= @user.location.capitalize %></h3>
+      <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+    </div>
+
+    <div class="user-details">
+      <h3><%= @user.location.capitalize %></h3>
+      <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
+    </div>
+
+    <div class="details-grid">
+      <div class="services grid-item">
+        <h3>Your services</h3>
+        <%= link_to 'Add Service', new_user_service_path, class: "new-service" %>
+        <div class="service-chips">
+          <% @services.each do |user_service| %>
+            <%= link_to service_path(user_service.service), class: "chip" do %>
+              <p class="mb-0"><%= user_service.service.name %></p>
+              <p class="mb-0"><%= user_service.average_rating.nil? ? 0.0 : user_service.average_rating %><i class="fa-regular fa-star"></i></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="listings grid-item">
+        <h3>Your listings</h3>
+        <% @listings.each do |listing| %>
+          <div class="listing text-center">
+            <img src='<%= listing.listing_image.key ? "#{cl_image_path listing.listing_image.key}" : "https://placehold.co/200" %>' alt="Listing image">
+            <div class="listing-details">
+              <h4><%= listing.title %></h4>
+              <p><%= listing.description %></p>
+              <%= link_to "View RAP requests", service_listing_path(listing.user_service.service, listing), class: "view-requests" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="bookings grid-item">
+        <h3>Your bookings</h3>
+        <% @bookings.each do |booking| %>
+         <%= link_to service_listing_booking_path(booking.listing.user_service.service, booking.listing, booking), class: "booking" do %>
+            <h4><%= booking.listing.title %></h4>
+            <h5><%= booking.listing.user_service.service.name %></h5>
+            <p><%= booking.start_date.strftime('%A %e %b %Y') %> - <%= booking.end_date.strftime('%A %e %b %Y') %></p>
+            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 
-<div id="editBannerModalRoot"></div>
+  <div id="editBannerModalRoot"></div>
+</div>

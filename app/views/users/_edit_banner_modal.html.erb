@@ -1,5 +1,6 @@
 <div class="modal-wrapper">
   <div class="modal-content" data-controller="banner-select">
+    <h2>Edit profile banner</h2>
     <%= simple_form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 

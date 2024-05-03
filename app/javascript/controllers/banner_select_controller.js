@@ -11,11 +11,17 @@ export default class extends Controller {
       },
     })
     .then(response => response.text())
-    .then(html => { document.getElementById("editBannerModalRoot").innerHTML = html; })
+    .then(html => {
+      document.getElementById("editBannerModalRoot").innerHTML = html
+      document.body.style.overflowY = "hidden"
+      document.querySelector(".is-valid").classList.remove("is-valid")
+      document.querySelector(".modal-wrapper").dataset.action = "click->banner-select#closeEditModal keyup.esc@document->banner-select#closeEditModal"
+    })
   }
 
   closeEditModal(e) {
     e.preventDefault()
-    document.getElementById("editBannerModalRoot").innerHTML = "";
+    document.getElementById("editBannerModalRoot").innerHTML = ""
+    document.body.style.overflowY = "scroll"
   }
 }
