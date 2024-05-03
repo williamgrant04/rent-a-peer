@@ -13,11 +13,6 @@
       <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
     </div>
 
-    <div class="user-details">
-      <h3><%= @user.location.capitalize %></h3>
-      <h1><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h1>
-    </div>
-
     <div class="details-grid">
       <div class="services grid-item">
         <h3>Your services</h3>
@@ -53,7 +48,7 @@
             <h4><%= booking.listing.title %></h4>
             <h5><%= booking.listing.user_service.service.name %></h5>
             <p><%= booking.start_date.strftime('%A %e %b %Y') %> - <%= booking.end_date.strftime('%A %e %b %Y') %></p>
-            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
+            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "RAP accepted!" : "Not accepted" %></p>
           <% end %>
         <% end %>
       </div>

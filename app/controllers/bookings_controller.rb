@@ -29,11 +29,12 @@ class BookingsController < ApplicationController
   def update
     @booking.accepted = true
     @booking.save
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @booking.destroy
-    redirect_to profile_path
+    redirect_back(fallback_location: root_path)
   end
 
   private
