@@ -71,7 +71,7 @@ User.all.each do |user|
       hourly_rate: rand(10..30),
       user_service: user_service,
     )
-    listing.listing_image.attach(io: URI.open("https://loremflickr.com/200/200/#{user_service.service.name.downcase}"), filename: "#{user_service.service.name.downcase}.jpg", content_type: "image/jpg")
+    listing.listing_image.attach(io: URI.open("https://loremflickr.com/200/200/#{user_service.service.name.downcase.gsub(" ", "_")}"), filename: "#{user_service.service.name.downcase}.jpg", content_type: "image/jpg")
     listing.save
   end
 end
