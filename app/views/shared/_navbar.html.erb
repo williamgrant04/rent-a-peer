@@ -4,14 +4,21 @@
   <% end %>
 
   <div class="nav-user">
-    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-    <div class="nav-user-image" data-action="click->navbar-dropdown#toggleDropdown">
-      <%= cl_image_tag current_user.profile_image.key, alt: "User avatar", height: "40px", width: "40px" %>
-    </div>
+    <% if current_user %>
+      <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+      <div class="nav-user-image" data-action="click->navbar-dropdown#toggleDropdown">
+        <%= cl_image_tag current_user.profile_image.key, alt: "User avatar", height: "40px", width: "40px" %>
+      </div>
+    <% else %>
+      <p>You need to log in.</p>
+      <div class="nav-user-image">
+        <img src="https://twirpz.files.wordpress.com/2015/06/twitter-avi-gender-balanced-figure.png" alt="User avatar" height="40px" width="40px">
+      </div>
+    <% end %>
 
     <div class="profile-dropdown" data-navbar-dropdown-target="dropdown">
       <%= link_to "Profile", profile_path %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %>
     </div>
   </div>
 </div>
