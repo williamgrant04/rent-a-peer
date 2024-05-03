@@ -71,7 +71,7 @@ User.all.each do |user|
       hourly_rate: rand(10..30),
       user_service: user_service,
     )
-    listing.listing_image.attach(io: URI.open("https://loremflickr.com/200/200/#{user_service.service.name.downcase.gsub(" ", "_")}"), filename: "#{user_service.service.name.downcase}.jpg", content_type: "image/jpg")
+    listing.listing_image.attach(io: URI.open("https://loremflickr.com/1000/1000/#{user_service.service.name.downcase.gsub(" ", "_")}"), filename: "#{user_service.service.name.downcase}.jpg", content_type: "image/jpg")
     listing.save
   end
 end
@@ -95,11 +95,15 @@ puts "Done."
     UserService.where.not(user: user).each do |serv|
       Review.create!(
         title: "My review",
-        content: "The #{serv.user.first_name} did a great job at #{serv.service.name}",
+        content: "#{serv.user.first_name} did a great job at #{serv.service.name}",
         rating: rand(0..5),
         user: user,
         user_service: serv
       )
+      ratings = []
+      serv.reviews.each { |review| ratings << review.rating }
+      serv.average_rating = ratings.sum.fdiv(ratings.size).round(1)
+      serv.save!
     end
   end
   puts "Done."
