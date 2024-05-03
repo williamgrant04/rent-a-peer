@@ -42,7 +42,7 @@
       </div>
 
       <div class="bookings grid-item">
-        <h3>Your bookings</h3>
+        <h3>Your RAP requests</h3>
         <% @bookings.each do |booking| %>
          <%= link_to service_listing_booking_path(booking.listing.user_service.service, booking.listing, booking), class: "booking" do %>
             <h4><%= booking.listing.title %></h4>
