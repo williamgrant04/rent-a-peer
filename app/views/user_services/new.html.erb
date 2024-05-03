@@ -1,4 +1,19 @@
-<%= simple_form_for(@user_service) do |f| %>
-  <%= f.input :service, :collection => @service_names %>
-  <%= f.submit "Add service" %>
-  <% end %>
+<div class="form-container" style="margin: 120px 0;">
+  <div class="form">
+  <div class="form-image-hero">
+      <%=image_tag('hero.png', class: "img-hero")  %>
+    </div>
+    <div class="card-form">
+      <%= simple_form_for(@user_service) do |f| %>
+        <%= f.input :service, :collection => @service_names, class: "input-field" %>
+        <div class="action">
+          <%= f.submit "Let's go!", class:"action-button" %>
+          <%=link_to 'Actually no', profile_path, class:"action-button" %>
+        </div>
+        <% end %>
+    </div>
+    <div class="form-info">
+      <p>By adding this service you are agreeing to our <a href="#">Terms and Conditions</a></p>
+    </div>
+  </div>
+</div>
