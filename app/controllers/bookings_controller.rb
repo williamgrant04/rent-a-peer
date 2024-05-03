@@ -27,10 +27,13 @@ class BookingsController < ApplicationController
   end
 
   def update
-    debugger
+    @booking.accepted = true
+    @booking.save
   end
 
   def destroy
+    @booking.destroy
+    redirect_to profile_path
   end
 
   private

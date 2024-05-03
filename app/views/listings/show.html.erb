@@ -1,0 +1,18 @@
+<div class="container text-center">
+  <h1><%= @listing.title %></h1>
+
+  <% @bookings.each do |booking| %>
+    <div>
+      <div class="p-3 border m-3">
+        <p>Booked by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+        <p>Starts: <%= booking.start_date %></p>
+        <p>Ends: <%= booking.end_date %></p>
+      <div>
+        <%= link_to "Confirm RAP", service_listing_booking_path(params[:service_id], booking.listing, booking), data: { turbo_method: :patch } %>
+        <%= link_to "Reject RAP", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Reject and delete this RAP request?" } %>
+      </div>
+      </div>
+
+    </div>
+    <% end %>
+</div>
