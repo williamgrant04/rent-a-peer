@@ -52,44 +52,43 @@ puts "Done."
 
 
 puts "Seeding user_services..."
-
 User.all.each do |user|
-  services = Service.first(5)
-  2.times do
-    service = services.sample
-    UserService.create!(user: user, service: service)
-    services.delete(service)
+  6.times do
+    service = Service.all.sample
+    unless UserService.find_by(user: user, service: service)
+      UserService.create!(user: user, service: service)
+    end
   end
 end
 puts "Done."
 
 puts "Seeding listings..."
 User.all.each do |user|
-  user.user_services.each do |user_service|
-    listing = Listing.new(
-      title: user_service.service.name,
-      description: "Providing top-quality #{user_service.service.name} services tailored to your needs, ensuring your space shines and sparkles with every visit. Get in touch today, and let's make your space happier place to be! ",
+  UserService.where(user: user).each do |user_service|
+    Listing.create!(
+      title: Faker::Company.name,
+      description: "Providing top-quality #{user_service.service.name} services tailored to your needs, ensuring your space shines and sparkles with every visit. Get in touch today, and let's make your space happier place to be!",
       hourly_rate: rand(10..30),
-      user_service: user_service
+      user_service: user_service,
     )
     listing.listing_image.attach(io: URI.open("https://loremflickr.com/200/200/#{user_service.service.name.downcase}"), filename: "#{user_service.service.name.downcase}.jpg", content_type: "image/jpg")
     listing.save
   end
 end
-  puts "Done."
+puts "Done."
 
-  puts "Seeding bookings..."
-  User.all.each do |user|
-    Listing.all.each do |listing|
-      Booking.create!(
-        user: user,
-        start_date: Date.today,
-        end_date: Date.tomorrow,
-        listing: listing
-      )
-    end
+puts "Seeding bookings..."
+Listing.all.each do |listing|
+  3.times do
+    Booking.create!(
+      user: User.where.not(id: listing.user_service.user.id).sample,
+      listing: listing,
+      start_date: Date.today,
+      end_date: Date.today + 1.week
+    )
   end
-  puts "Done."
+end
+puts "Done."
 
   puts "Seeding reviews..."
   User.all.each do |user|
