@@ -1,30 +1,17 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png", class: "navbar-logo" %>
-    <% end %>
+<div class="rap-navbar" data-controller="navbar-dropdown">
+  <%= link_to root_path do %>
+    <img src="<%= image_path 'logo.png' %>" alt="RAP logo" height="40px" width="40px">
+  <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="nav-user">
+    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+    <div class="nav-user-image" data-action="click->navbar-dropdown#toggleDropdown">
+      <%= cl_image_tag current_user.profile_image.key, alt: "User avatar", height: "40px", width: "40px" %>
+    </div>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <p><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></p>
-              <%= image_tag current_user.profile_image, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", profile_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete, turbo_confirm: 'Sign out?'} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="profile-dropdown" data-navbar-dropdown-target="dropdown">
+      <%= link_to "Profile", profile_path %>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     </div>
   </div>
 </div>
