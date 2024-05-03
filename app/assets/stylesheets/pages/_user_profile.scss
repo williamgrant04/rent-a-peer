@@ -214,6 +214,11 @@
 	overflow: hidden;
   height: 10rem;
   position: relative;
+  h2 {
+    color: rgb(142, 154, 167);
+    mix-blend-mode: difference;
+  }
+
   img {
     display: block;
     width: 100%;

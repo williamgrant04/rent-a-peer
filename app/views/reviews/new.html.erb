@@ -1,8 +1,18 @@
-<div class="container">
+<div class="form-container" style="margin: 120px 0;">
+<div class="form">
+  <div class="form-image-hero">
+      <%=image_tag('rating.jpeg', class: "img-hero")  %>
+    </div>
+    <div class="card-form">
   <%= simple_form_for [@user_service, @review] do |f| %>
-    <%= f.input :title %>
-    <%= f.input :content %>
-    <%= f.input :rating, collection: (0..5) %>
-    <%= f.submit %>
+    <%= f.input :title, class: "input-field" %>
+    <%= f.input :content, class: "input-field", input_html: { style: "resize: none;"} %>
+    <%= f.input :rating, collection: (0..5), class: "input-field" %>
+    <%= f.submit "Review", class:"action-button" %>
   <% end %>
+  </div>
+    <div class="form-info">
+      <p>By adding this service you are agreeing to our <a href="#">Terms and Conditions</a></p>
+    </div>
+  </div>
 </div>

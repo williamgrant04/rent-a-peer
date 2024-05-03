@@ -4,6 +4,12 @@ class UsersController < ApplicationController
     @services = @user.services
     @bookings = @user.bookings
     @listings = @user.listings
+    @reviews = []
+    @user.user_services.each do |us|
+      us.reviews.each do |review|
+        @reviews << review
+      end
+    end
   end
 
   def profile
