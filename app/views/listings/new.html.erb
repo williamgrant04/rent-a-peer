@@ -1,7 +1,26 @@
-<%= simple_form_for [@service, @listing] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :listing_image %>
-  <%= f.input :hourly_rate %>
-  <%= f.submit %>
-<% end %>
+<div class="form-container">
+  <div class="form">
+    <div class="form-image">
+      <%# need to upload banner images for services to access %>
+      <div class="form-heading">
+        <h1>Become a <%= @service.name.downcase %> hero!</h1>
+      </div>
+    </div>
+
+    <%= simple_form_for [@service, @listing] do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description, input_html: { style: "resize: none;"} %>
+      <%= f.input :listing_image %>
+      <%= f.input :hourly_rate %>
+      <div class="action">
+      <%= f.submit "Create Listing", class: "action-button" %>
+      <%= link_to "Cancel", service_path(params[:service_id]), class: "action-button" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-info">
+    <p>By creating this <%=@service.name.downcase%> listing you are agreeing to our <a href="#">Terms and Conditions</a></p>
+  </div>
+
+</div>
