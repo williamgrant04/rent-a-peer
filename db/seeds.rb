@@ -65,7 +65,7 @@ puts "Done."
 puts "Seeding listings..."
 User.all.each do |user|
   UserService.where(user: user).each do |user_service|
-    Listing.create!(
+    listing = Listing.new(
       title: Faker::Company.name,
       description: "Providing top-quality #{user_service.service.name} services tailored to your needs, ensuring your space shines and sparkles with every visit. Get in touch today, and let's make your space happier place to be!",
       hourly_rate: rand(10..30),
