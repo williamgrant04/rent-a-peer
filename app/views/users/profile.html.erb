@@ -47,8 +47,8 @@
          <%= link_to service_listing_booking_path(booking.listing.user_service.service, booking.listing, booking), class: "booking" do %>
             <h4><%= booking.listing.title %></h4>
             <h5><%= booking.listing.user_service.service.name %></h5>
-            <p>From: <%= booking.start_date.strftime('%A %e %b %Y') %> <br> To: <%= booking.end_date.strftime('%A %e %b %Y') %></p>
-              <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "Accepted!" : "Not accepted" %></p>
+            <p><%= booking.start_date.strftime('%A %e %b %Y') %> - <%= booking.end_date.strftime('%A %e %b %Y') %></p>
+            <p class="acceptance <%= booking.accepted ? "accepted" : "not-accepted" %>"><%= booking.accepted ? "RAP accepted!" : "Not accepted" %></p>
           <% end %>
           <%= link_to "Review #{booking.listing.user_service.user.first_name}", "new_user_service_review_path", class: "review-button"%>
         <% end %>
