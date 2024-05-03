@@ -1,6 +1,9 @@
 require "open-uri"
 
-puts "Deleting all users..."
+puts "Deleting cleaning out the database..."
+Listing.destroy_all
+UserService.destroy_all
+Service.destroy_all
 User.destroy_all
 puts "Done."
 
@@ -16,15 +19,13 @@ user2.save!
 puts "Done."
 
 # Service seeds
-puts "Deleting all services..."
-Service.destroy_all
-puts 'Done.'
+
 
 puts 'Seeding Services'
-service1 = Service.create!(name: 'Cleaning', icon: "fa-solid fa-soap")
-service2 = Service.create!(name: 'Cooking', icon: "fa-solid fa-utensils")
-service3 = Service.create!(name: 'Gardening', icon: "fa-solid fa-house")
-service4 = Service.create!(name: 'Painting', icon: "fa-solid fa-paintbrush")
+Service.create!(name: 'Cleaning', icon: "fa-solid fa-soap") #service1
+Service.create!(name: 'Cooking', icon: "fa-solid fa-utensils") #service2
+Service.create!(name: 'Gardening', icon: "fa-solid fa-house") #service3
+Service.create!(name: 'Painting', icon: "fa-solid fa-paintbrush") #service4
 Service.create!(name: 'Plumbing', icon: "fa-solid fa-wrench")
 Service.create!(name: 'Tutoring', icon: "fa-solid fa-graduation-cap")
 Service.create!(name: 'Development', icon: "fa-solid fa-code")
@@ -37,43 +38,28 @@ Service.create!(name: 'Sewing', icon: "fa-solid fa-map-pin")
 Service.create!(name: 'Hair dressing', icon: "fa-solid fa-scissors")
 puts "Done."
 
-puts "Deleting all user_services..."
-UserService.destroy_all
-puts "Done."
+
 
 puts "Seeding user_services..."
-user_service1 = UserService.create!(user: user, service: service1)
-user_service2 = UserService.create!(user: user, service: service2)
-user_service3 = UserService.create!(user: user, service: service3)
-user_service4 = UserService.create!(user: user, service: service4)
-puts "Done."
 
-puts "Deleting all listings..."
-Listing.destroy_all
+User.all.each do |user|
+  services = Service.first(5)
+  2.times do
+    service = services.sample
+    UserService.create!(user: user, service: service)
+    services.delete(service)
+  end
+end
 puts "Done."
 
 puts "Seeding listings..."
-Listing.create!(
-  title: "Listing",
-  description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla id totam cupiditate nihil pariatur maxime dolore aliquid doloribus fugit temporibus, quia et quam sapiente harum, odit ex. Omnis, doloremque! Dolores.",
-  hourly_rate: 25.0,
-  user_service: user_service1
-)
-Listing.create!(
-  title: "Listing",
-  description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla id totam cupiditate nihil pariatur maxime dolore aliquid doloribus fugit temporibus, quia et quam sapiente harum, odit ex. Omnis, doloremque! Dolores.",
-  hourly_rate: 137.0,
-  user_service: user_service2
-)
-Listing.create!(
-  title: "Listing",
-  description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla id totam cupiditate nihil pariatur maxime dolore aliquid doloribus fugit temporibus, quia et quam sapiente harum, odit ex. Omnis, doloremque! Dolores.",
-  hourly_rate: 19.0,
-  user_service: user_service3
-)
-Listing.create!(
-  title: "Listing",
-  description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla id totam cupiditate nihil pariatur maxime dolore aliquid doloribus fugit temporibus, quia et quam sapiente harum, odit ex. Omnis, doloremque! Dolores.",
-  hourly_rate: 3.4,
-  user_service: user_service4
-)
+User.all.each do |user|
+  user.user_services.each do |user_service|
+    Listing.create!(
+      title: user_service.service.name,
+      description: "Providing top-quality #{user_service.service.name} services tailored to your needs, ensuring your space shines and sparkles with every visit.Get in touch today, and let's make your space happier place to be! ",
+      hourly_rate: 25.0,
+      user_service: user_service
+    )
+  end
+end
