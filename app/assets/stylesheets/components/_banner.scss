@@ -48,28 +48,30 @@
 .booking-show-banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  height: 300px;
   border-radius: 10px;
   margin-bottom: 30px;
-  max-height: 25px;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+  color: white;
 }
 
 .booking-show-banner h1 {
   margin: 0;
-  color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 40px;
   font-weight: bold;
-  text-align: center;
 }
 
 .booking-show-banner p {
   font-size: 35px;
-  text-align: center;
-  color: rgb(255, 255, 255);
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+  opacity: 0.8;
+  margin: 0;
 }
 // I think this is redundant but I'm leaving it here just in case
 // .banner a {

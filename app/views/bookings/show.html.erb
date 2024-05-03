@@ -1,32 +1,33 @@
-<div class=" mx-5 my-5 container-services-show">
-<%=link_to "Back to #{@service.name}", service_path(@service), class: "btn btn-flat mb-3"%>
+<div class="mx-5 container-services-show" style="margin: 120px 0;">
+  <%=link_to "Back to #{@service.name}", service_path(@service), class: "back-button mb-3"%>
   <div class="booking-show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.ctfassets.net/0gqf8nju6pz6/3A6EcER4SuhrqFjAPrwxBq/f125abfda235d8c86637d605df13ed3c/cleaning-tools-hero.jpeg);">
-    <div class="banner-text-container">
-      <h1>Dear <%= @user.first_name %>, your booking is done!</h1>
-      <br>
-      <p>You'll find all the details below:</p>
-    </div>
+    <h1><%= @user.first_name %>, you've RAPPED <%= @listing.user_service.user.first_name %>!</h1>
+    <p>You'll find all the details below:</p>
   </div>
+
   <div class="main-info">
-  <%# placer la card de résumé ici %>
-  <div class="booking-card">
-  <div class="seller-picture">
-	  <img src=<%=cl_image_path(@listing.user_service.user.profile_image.key)%>'>
+    <%# placer la card de résumé ici %>
+    <div class="booking-card">
+      <div class="seller-picture">
+        <img src=<%=cl_image_path(@listing.user_service.user.profile_image.key)%>'>
+      </div>
+
+      <p class="user-rating"><strong>4.2 ⭐️</strong></p>
+      <h2 class="seller-name">
+        <strong><%=@listing.user_service.user.first_name %></strong>
+      </h2>
+
+      <div class="user-service-card__text-column">
+        <div class="name-and-rating">
+          <div class="rating">
+            <h2><%=@service.name%></h2>
+            <p class="booking-rates"><%=(@listing.hourly_rate).round %>€ / hour</p>
+          </div>
+        </div>
+
+        <p><%=@listing.description %></p>
+        <%=link_to "Cancel RAP", new_service_listing_booking_path(@service, @listing), class: "btn btn-cancel cancel-button"%>
+      </div>
     </div>
-    <p class="user-rating"><strong>4,2 ⭐️</strong></p>
-    <h2 class="seller-name"><strong><%=@listing.user_service.user.first_name %></strong></h2>
-	<div class="user-service-card__text-column">
-    <div class="name-and-rating">
-    <div class="rating">
-    <h2><%=@service.name%></h2>
-    <p class="booking-rates"><%=(@listing.hourly_rate).round %>€ / hour</p>
-    </div>
-    </div>
-      <p><%=@listing.description %></p>
-      <%=link_to "Cancel RAP", booking_path(params[:id]), data: { turbo_method: :delete, trubo_confirm: "Delete this RAP request?" }, class: "btn btn-cancel cancel-button"%>
-	</div>
   </div>
-  <%# <% end %>
-</div>
-</div>
 </div>
